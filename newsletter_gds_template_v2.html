@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="telephone=no" name="format-detection">
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║         NEWSLETTER GDS — MODÈLE RÉPLICABLE PAR DÉPARTEMENT       ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  VARIABLES À MODIFIER (Ctrl+H dans Notepad++ ou VS Code) :       ║
+  ║                                                                  ║
+  ║  [TITRE_ONGLET]    → Titre de l'email (objet visible en aperçu)  ║
+  ║  [NOM_SECTION]     → Ex: "Section apicole du GDS Vendée"         ║
+  ║  [DATE_NEWSLETTER] → Ex: "30 juin 2025"                          ║
+  ║  [TITRE_SUJET]     → Titre principal du sujet de la newsletter   ║
+  ║  [IMAGE_BANNIERE]  → URL de l'image de bannière                  ║
+  ║  [LOGO_URL]        → URL du logo section                         ║
+  ║  [TEXTE_INTRO]     → Paragraphe d'introduction                   ║
+  ║  [TEXTE_CORPS_1]   → 1er paragraphe de contenu                   ║
+  ║  [TEXTE_CORPS_2]   → 2e paragraphe de contenu                    ║
+  ║  [TEXTE_CORPS_3]   → Paragraphe de conclusion                    ║
+  ║  [BOUTON_1_TEXTE]  → Texte du 1er bouton                         ║
+  ║  [BOUTON_1_LIEN]   → URL du 1er bouton                           ║
+  ║  [BOUTON_2_TEXTE]  → Texte du 2e bouton (supprimer si inutile)   ║
+  ║  [BOUTON_2_LIEN]   → URL du 2e bouton                            ║
+  ║  [CONTACT_NOM]     → Nom complet du contact                      ║
+  ║  [CONTACT_TITRE]   → Poste / fonction                            ║
+  ║  [CONTACT_TEL]     → Numéro de téléphone                         ║
+  ║  [CONTACT_EMAIL]   → Adresse email                               ║
+  ║  [CONTACT_ADRESSE] → Adresse postale                             ║
+  ║  [CONTACT_PHOTO]   → URL de la photo du contact                  ║
+  ╚══════════════════════════════════════════════════════════════════╝
+  -->
+
+  <title>[TITRE_ONGLET]</title>
+  <style type="text/css">
+
+    /* ── PALETTE GDS ──────────────────────────────
+       Violet  : #A12885
+       Vert    : #56AE31
+       Bleu    : #007BC3
+       Texte   : #1a1a1a
+       Gris    : #f5f5f5
+    ─────────────────────────────────────────────── */
+
+    body, html {
+      margin: 0; padding: 0;
+      width: 100%;
+      background-color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    #outlook a { padding: 0; }
+    a[x-apple-data-detectors], #MessageViewBody a {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+
+    /* ── STRUCTURE ─────────────────────────────── */
+    .wrapper {
+      width: 100%;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: 24px auto;
+      background: #ffffff;
+    }
+
+    /* ── BARRE SUPÉRIEURE ──────────────────────── */
+    .top-bar {
+      background-color: #007BC3;
+      height: 6px;
+      font-size: 0;
+      line-height: 0;
+    }
+
+    /* ── EN-TÊTE ───────────────────────────────── */
+    .header {
+      padding: 28px 40px 24px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .header-inner {
+      display: table;
+      width: 100%;
+    }
+    .header-logo-cell {
+      display: table-cell;
+      vertical-align: middle;
+      width: 160px;
+    }
+    .header-logo-cell img {
+      display: block;
+      max-width: 140px;
+      height: auto;
+    }
+    .header-meta-cell {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: right;
+    }
+    .header-section-name {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #007BC3;
+      margin: 0 0 4px 0;
+    }
+    .header-date {
+      font-size: 12px;
+      color: #999999;
+      margin: 0;
+    }
+
+    /* ── TITRE SUJET ───────────────────────────── */
+    .subject-block {
+      padding: 36px 40px 32px;
+      background-color: #ffffff;
+      border-left: 5px solid #A12885;
+    }
+    .subject-label {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #A12885;
+      margin: 0 0 12px 0;
+    }
+    .subject-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.3;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    /* ── IMAGE BANNIÈRE ────────────────────────── */
+    .banner {
+      font-size: 0;
+      line-height: 0;
+    }
+    .banner img {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    /* ── BARRE SÉPARATRICE TRICOLORE ───────────── */
+    .tricolor-bar {
+      display: table;
+      width: 100%;
+      font-size: 0;
+      line-height: 0;
+    }
+    .tricolor-bar td, .tricolor-segment {
+      height: 4px;
+      width: 33.33%;
+      display: table-cell;
+    }
+
+    /* ── CORPS DU CONTENU ──────────────────────── */
+    .body-content {
+      padding: 36px 40px;
+      background-color: #ffffff;
+    }
+
+    /* Intro mise en valeur */
+    .intro-block {
+      border-top: 2px solid #56AE31;
+      padding-top: 20px;
+      margin-bottom: 28px;
+    }
+    .intro-block p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333333;
+      margin: 0;
+    }
+
+    /* Paragraphes courants */
+    .text-block p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #444444;
+      margin: 0 0 14px 0;
+    }
+    .text-block p:last-child { margin-bottom: 0; }
+    .text-block strong { color: #1a1a1a; }
+
+    /* Séparateur léger */
+    .sep {
+      border: none;
+      border-top: 1px solid #eeeeee;
+      margin: 28px 0;
+    }
+
+    /* Bouton principal */
+    .btn-wrap { text-align: center; padding: 8px 0 24px; }
+    .btn-primary {
+      display: inline-block;
+      background-color: #A12885;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 13px 30px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Bouton secondaire */
+    .btn-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: #007BC3 !important;
+      text-decoration: none !important;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 11px 28px;
+      border: 2px solid #007BC3;
+    }
+
+    /* Encadré conclusion */
+    .conclusion-box {
+      background-color: #f9f9f9;
+      border-left: 4px solid #56AE31;
+      padding: 20px 24px;
+      margin-top: 8px;
+    }
+    .conclusion-box p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #444444;
+      margin: 0 0 12px 0;
+    }
+    .conclusion-box p:last-child { margin-bottom: 0; }
+    .conclusion-box strong { color: #1a1a1a; }
+
+    /* ── SECTION CONTACT ───────────────────────── */
+    .contact-section {
+      padding: 28px 40px;
+      background-color: #ffffff;
+      border-top: 1px solid #eeeeee;
+    }
+    .contact-label {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #007BC3;
+      margin: 0 0 16px 0;
+    }
+    .contact-inner {
+      display: table;
+      width: 100%;
+    }
+    .contact-info-cell {
+      display: table-cell;
+      vertical-align: middle;
+      padding-right: 20px;
+    }
+    .contact-name {
+      font-size: 17px;
+      font-weight: bold;
+      color: #A12885;
+      margin: 0 0 6px 0;
+    }
+    .contact-details {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #555555;
+    }
+    .contact-details a { color: #007BC3; text-decoration: none; }
+    .contact-photo-cell {
+      display: table-cell;
+      vertical-align: middle;
+      width: 88px;
+      text-align: right;
+    }
+    .contact-photo-cell img {
+      display: block;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #A12885;
+    }
+
+    /* ── LOGOS PARTENAIRES ─────────────────────── */
+    .partners-section {
+      background-color: #f5f5f5;
+      padding: 28px 40px;
+      text-align: center;
+      border-top: 1px solid #eeeeee;
+    }
+    .partners-label {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999999;
+      margin: 0 0 20px 0;
+    }
+    .logos-row {
+      font-size: 0;
+      margin-bottom: 16px;
+    }
+    .logo-item {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 14px 12px;
+    }
+    .logo-item img {
+      max-width: 100px;
+      max-height: 50px;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    /* ── PIED DE PAGE ──────────────────────────── */
+    .footer {
+      padding: 18px 40px;
+      background-color: #1a1a1a;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 11px;
+      color: #888888;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .footer a { color: #aaaaaa; text-decoration: none; }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media only screen and (max-width: 600px) {
+      .container { margin: 0 !important; }
+      .header, .body-content, .contact-section, .partners-section, .footer { padding: 20px !important; }
+      .subject-block { padding: 24px 20px !important; }
+      .subject-title { font-size: 20px !important; }
+      .header-inner, .contact-inner { display: block !important; }
+      .header-logo-cell, .header-meta-cell { display: block !important; width: auto !important; text-align: left !important; margin-bottom: 8px; }
+      .contact-info-cell, .contact-photo-cell { display: block !important; width: auto !important; text-align: left !important; padding: 0 !important; }
+      .contact-photo-cell { margin-top: 12px; }
+      .contact-photo-cell img { margin: 0; }
+      .btn-primary, .btn-secondary { display: block !important; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrapper">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+  <tr>
+    <td align="center">
+      <table class="container" width="600" cellpadding="0" cellspacing="0" border="0" role="none" style="max-width:600px; background:#ffffff;">
+
+        <!-- BARRE BLEUE SUPÉRIEURE -->
+        <tr>
+          <td style="background-color:#007BC3; height:6px; font-size:0; line-height:0;">&nbsp;</td>
+        </tr>
+
+        <!-- EN-TÊTE : LOGO + NOM SECTION + DATE -->
+        <tr>
+          <td style="padding:28px 40px 24px; border-bottom:1px solid #eeeeee;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+              <tr>
+                <td valign="middle" width="160">
+                  <!-- [LOGO_URL] -->
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/apicolepdll_O0G.png"
+                       alt="Logo GDS"
+                       width="140"
+                       style="display:block; max-width:140px; height:auto;">
+                </td>
+                <td valign="middle" align="right">
+                  <!-- [NOM_SECTION] -->
+                  <p style="font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase; color:#007BC3; margin:0 0 4px 0;">Section apicole du GDS Pays-de-la-Loire</p>
+                  <!-- [DATE_NEWSLETTER] -->
+                  <p style="font-family:Arial,sans-serif; font-size:12px; color:#999999; margin:0;">30 juin 2025</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- TITRE DU SUJET -->
+        <tr>
+          <td style="padding:36px 40px 32px; border-left:5px solid #A12885;">
+            <p style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#A12885; margin:0 0 12px 0;">Actualité</p>
+            <!-- [TITRE_SUJET] -->
+            <h1 style="font-family:Arial,sans-serif; font-size:24px; font-weight:bold; line-height:1.3; color:#1a1a1a; margin:0;">Frelon asiatique : Bilan du 2e questionnaire et remerciements</h1>
+          </td>
+        </tr>
+
+        <!-- BARRE TRICOLORE -->
+        <tr>
+          <td style="font-size:0; line-height:0; height:4px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none" style="height:4px;">
+              <tr>
+                <td style="background-color:#007BC3; width:33.33%; height:4px;"></td>
+                <td style="background-color:#A12885; width:33.33%; height:4px;"></td>
+                <td style="background-color:#56AE31; width:33.34%; height:4px;"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- IMAGE BANNIÈRE -->
+        <tr>
+          <td style="font-size:0; line-height:0;">
+            <!-- [IMAGE_BANNIERE] -->
+            <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/image_cet.jpeg"
+                 alt=""
+                 width="600"
+                 style="display:block; width:100%; max-width:600px; height:auto;">
+          </td>
+        </tr>
+
+        <!-- ─── CORPS DE CONTENU ─── -->
+        <tr>
+          <td style="padding:36px 40px; background:#ffffff;">
+
+            <!-- INTRO -->
+            <div style="border-top:2px solid #56AE31; padding-top:20px; margin-bottom:28px;">
+              <!-- [TEXTE_INTRO] -->
+              <p style="font-family:Arial,sans-serif; font-size:15px; line-height:1.8; color:#333333; margin:0;">Un grand merci à toutes celles et ceux qui ont pris part à cette enquête conduite en deux temps autour de la pression du frelon asiatique <em>Vespa velutina</em> et de ses impacts potentiels sur les colonies. Vos retours sont précieux pour mieux comprendre la situation sur le terrain et orienter les actions futures.</p>
+            </div>
+
+            <!-- TEXTE CORPS 1 & 2 -->
+            <!-- [TEXTE_CORPS_1] -->
+            <p style="font-family:Arial,sans-serif; font-size:14px; line-height:1.8; color:#444444; margin:0 0 14px 0;">Cette étude, menée à l'automne puis en sortie d'hiver, visait à établir un lien entre la présence du frelon devant les ruches en fin de saison et l'état des colonies au printemps.</p>
+            <!-- [TEXTE_CORPS_2] -->
+            <p style="font-family:Arial,sans-serif; font-size:14px; line-height:1.8; color:#444444; margin:0 0 24px 0;">Nous vous partageons aujourd'hui <strong style="color:#1a1a1a;">le bilan du deuxième questionnaire</strong>, portant sur l'état des ruches à la sortie de l'hiver :</p>
+
+            <!-- BOUTON 1 -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+              <tr>
+                <td align="center" style="padding:0 0 28px 0;">
+                  <!-- [BOUTON_1_LIEN] [BOUTON_1_TEXTE] -->
+                  <a href="https://drive.google.com/file/d/1pLKRrnSMBJY9DyxnvMVQbz2R8ylDD0bP/view?usp=drive_link"
+                     target="_blank"
+                     style="display:inline-block; background-color:#A12885; color:#ffffff; text-decoration:none; font-family:Arial,sans-serif; font-size:14px; font-weight:bold; padding:13px 30px; letter-spacing:0.3px;">
+                    Fiche bilan — Enquête sortie hiver
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SÉPARATEUR -->
+            <hr style="border:none; border-top:1px solid #eeeeee; margin:4px 0 28px 0;">
+
+            <!-- LIEN VERS 2E DOCUMENT -->
+            <p style="font-family:Arial,sans-serif; font-size:14px; line-height:1.8; color:#444444; margin:0 0 20px 0;">Retrouvez également la fiche bilan du questionnaire précédent, réalisé à l'automne : <em>«&nbsp;Apiculteurs, quelle est la pression frelon sur vos ruchers&nbsp;»</em></p>
+
+            <!-- BOUTON 2 -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+              <tr>
+                <td align="center" style="padding:0 0 28px 0;">
+                  <!-- [BOUTON_2_LIEN] [BOUTON_2_TEXTE] -->
+                  <a href="https://drive.google.com/file/d/19wPCKfmH2nhFbmsef1RZnr5VZornhuWj/view?usp=drive_link"
+                     target="_blank"
+                     style="display:inline-block; background-color:transparent; color:#007BC3; text-decoration:none; font-family:Arial,sans-serif; font-size:14px; font-weight:bold; padding:11px 28px; border:2px solid #007BC3;">
+                    Fiche bilan — Enquête d'automne
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SÉPARATEUR -->
+            <hr style="border:none; border-top:1px solid #eeeeee; margin:4px 0 28px 0;">
+
+            <!-- ENCADRÉ CONCLUSION -->
+            <div style="background-color:#f9f9f9; border-left:4px solid #56AE31; padding:20px 24px;">
+              <!-- [TEXTE_CORPS_3] -->
+              <p style="font-family:Arial,sans-serif; font-size:14px; line-height:1.8; color:#444444; margin:0 0 12px 0;">Ces premiers éléments semblent indiquer qu'une forte pression de frelons à l'automne pourrait contribuer à affaiblir les colonies, bien que <strong style="color:#1a1a1a;">d'autres facteurs entrent également en jeu</strong> : le <strong style="color:#1a1a1a;">varroa</strong> notamment, mais aussi d'autres causes sanitaires ou environnementales.</p>
+              <p style="font-family:Arial,sans-serif; font-size:14px; line-height:1.8; color:#444444; margin:0 0 12px 0;">Le consortium scientifique prévoit de <strong style="color:#1a1a1a;">réitérer cette démarche à l'automne prochain et au printemps suivant</strong>, afin de suivre l'évolution sur plusieurs années et d'affiner l'analyse.</p>
+              <p style="font-family:Arial,sans-serif; font-size:14px; line-height:1.8; color:#444444; margin:0;">Merci encore pour votre engagement aux côtés de cette démarche collective.</p>
+            </div>
+
+          </td>
+        </tr>
+
+        <!-- BARRE TRICOLORE -->
+        <tr>
+          <td style="font-size:0; line-height:0; height:4px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none" style="height:4px;">
+              <tr>
+                <td style="background-color:#56AE31; width:33.33%; height:4px;"></td>
+                <td style="background-color:#A12885; width:33.33%; height:4px;"></td>
+                <td style="background-color:#007BC3; width:33.34%; height:4px;"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- SECTION CONTACT -->
+        <tr>
+          <td style="padding:28px 40px; background:#ffffff; border-top:1px solid #eeeeee;">
+            <p style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#007BC3; margin:0 0 16px 0;">Contact</p>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+              <tr>
+                <td valign="middle" style="padding-right:20px;">
+                  <!-- [CONTACT_NOM] -->
+                  <p style="font-family:Arial,sans-serif; font-size:17px; font-weight:bold; color:#A12885; margin:0 0 8px 0;">Violaine THIBAULT</p>
+                  <p style="font-family:Arial,sans-serif; font-size:13px; line-height:1.9; color:#555555; margin:0;">
+                    <!-- [CONTACT_TITRE] -->
+                    Coordinatrice frelon des Pays-de-la-Loire<br>
+                    <!-- [CONTACT_TEL] -->
+                    06.03.30.10.69<br>
+                    <!-- [CONTACT_EMAIL] -->
+                    <a href="mailto:frelon.frgds-pdl@reseaugds.com" style="color:#007BC3; text-decoration:none;">frelon.frgds-pdl@reseaugds.com</a><br>
+                    <!-- [CONTACT_ADRESSE] -->
+                    30 Av. de la Quantinière, 49800 Trélazé
+                  </p>
+                </td>
+                <td valign="middle" width="88" align="right">
+                  <!-- [CONTACT_PHOTO] -->
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/20210404_172952_2_LDm.jpg"
+                       alt="Photo contact"
+                       width="80" height="80"
+                       style="display:block; width:80px; height:80px; object-fit:cover; border-radius:50%; border:2px solid #A12885;">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- LOGOS PARTENAIRES -->
+        <tr>
+          <td style="padding:28px 40px; background:#f5f5f5; border-top:1px solid #eeeeee; text-align:center;">
+            <p style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#999999; margin:0 0 20px 0;">En collaboration avec</p>
+
+            <!-- LIGNE 1 -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+              <tr>
+                <td align="center" width="33%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/logo_gds_pl_section_apicole_fond_blanc.png"
+                       alt="GDS PDL" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+                <td align="center" width="33%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/logo_cen_pl.png"
+                       alt="CEN PDL" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+                <td align="center" width="34%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/logo_gretia.png"
+                       alt="GRETIA" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+              </tr>
+            </table>
+
+            <!-- LIGNE 2 -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none" style="margin-top:16px;">
+              <tr>
+                <td align="center" width="33%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/logo_chambre_dagri_pl.jpg"
+                       alt="Chambre Agriculture" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+                <td align="center" width="33%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/museum_national_dhistoire_naturelle_logo_2018svg.png"
+                       alt="MNHN" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+                <td align="center" width="34%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/logo_cpie.png"
+                       alt="CPIE" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+              </tr>
+            </table>
+
+            <!-- SOUTIENS -->
+            <p style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#999999; margin:24px 0 16px 0; padding-top:20px; border-top:1px solid #dddddd;">Avec le soutien de</p>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="none">
+              <tr>
+                <td align="center" width="33%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/1200pxlogo_du_ministere_de_lagriculture_et_de_lalimentation_2020svg__4PA.png"
+                       alt="Ministère Agriculture" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+                <td align="center" width="33%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/unnamed_uZ0.jpg"
+                       alt="Région" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+                <td align="center" width="34%">
+                  <img src="https://fuifnah.stripocdn.email/content/guids/CABINET_0deb7f37d05de982fe51ec471a0bbfd158e07d00abd0df34fad859df64096ab4/images/franceagrimer_logo_0Ye.png"
+                       alt="FranceAgriMer" style="max-width:100px; max-height:50px; height:auto; display:inline-block;">
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- PIED DE PAGE -->
+        <tr>
+          <td style="padding:18px 40px; background:#1a1a1a; text-align:center;">
+            <p style="font-family:Arial,sans-serif; font-size:11px; color:#888888; margin:0; line-height:1.7;">
+              © 2025 GDS Pays-de-la-Loire — Section Apicole<br>
+              <a href="#" style="color:#aaaaaa; text-decoration:none;">Se désabonner</a>
+              &nbsp;·&nbsp;
+              <a href="#" style="color:#aaaaaa; text-decoration:none;">Voir en ligne</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
